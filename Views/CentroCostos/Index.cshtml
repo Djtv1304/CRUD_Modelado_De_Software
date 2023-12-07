@@ -1,0 +1,58 @@
+﻿@model List<Ejemplo1.Models.CentroCostos>
+
+@{
+    ViewData["Title"] = "Lista Centro Costos";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Create", "CentroCostos")'">Nuevo Centro Costos <i class="fa-solid fa-plus"></i></button>
+
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Nombre del centro de costo</th>
+            <th scope="col">Mensaje del centro de costo</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.Codigo</th>
+                <td>@item.NombreCentroCostos</td>
+                <td>@item.Mensaje</td>
+                <td>
+                    <a href="javascript:void(0);" class="btn btn-primary" onclick="viewProduct('@item.Codigo', '@item.NombreCentroCostos')">Ver <i class="fa-solid fa-eye"></i></a>
+                    <a asp-action="Edit" asp-route-CodigoCentroCostos="@item.Codigo" class="btn btn-light">Editar <i class="fa-solid fa-pen-to-square"></i></a>
+                    <a asp-action="Delete" asp-route-CodigoCentroCostos="@item.Codigo" class="btn btn-danger">Eliminar <i class="fa-solid fa-trash"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Modal único -->
+<div class="modal fade" id="viewProductModal" tabindex="-1" role="dialog" aria-labelledby="viewProductLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewProductName"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="viewProductDescription"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="hideProductModal()">Cerrar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+

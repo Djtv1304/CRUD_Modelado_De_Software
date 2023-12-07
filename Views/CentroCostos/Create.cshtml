@@ -1,0 +1,39 @@
+﻿@model CentroCostos
+@{
+    ViewData["Title"] = "Crear Centro de Costos";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div class="form-group mb-3">
+
+        <label>Código del centro de costo</label>
+        <input asp-for="Codigo" class="form-control" placeholder="Ingrese el nuevo código del centro de costo">
+
+    </div>
+    <div class="form-group mb-3">
+
+        <label>Nombre del centro de costo</label>
+        <input asp-for="NombreCentroCostos" class="form-control" placeholder="Ingrese el nuevo nombre del centro de costo">
+
+    </div>
+    <div class="form-group mb-3">
+
+        <label>Mensaje del centro de costo</label>
+        <input asp-for="Mensaje" class="form-control" placeholder="Ingrese el nuevo mensaje del centro de costo">
+
+    </div>
+
+    <div class="row col-6">
+        <div class="col-6 col-md-6">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+        <div class="col-6 col-md-6">
+            <a asp-action="Index" class="btn btn-outline-secondary">Regresar</a>
+        </div>
+    </div>
+
+
+</form>
+
+<p>Esta es la vista para crear productos</p>
